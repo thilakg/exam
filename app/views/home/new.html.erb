@@ -1,0 +1,98 @@
+<!-- <h1>Home#new</h1>
+<p>Find me in app/views/home/new.html.erb</p>
+ -->
+
+<style>
+.lble
+{
+	background-color: #c0c0c0;	
+	width: 50%;
+	height:350px;
+	font-family: Helvetica;
+}
+.txt
+{
+	border: 1px solid black;
+width:500px;
+height:30px;
+font-family:Helvetica;
+color:#c0c0c0;
+font-size:21px; 
+
+/*padding-left:10px;
+*/
+}
+.txt1
+{
+	border: 1px solid black;
+width:500px;
+height:30px;
+font-family:Helvetica;
+color:black;
+font-size:21px; 
+
+/*padding-left:10px;
+*/
+}
+.but
+{
+	border: 1px solid black;
+	width:100px;
+height:20px;
+font-family:Helvetica;
+color:black;
+font-size:16px; 
+background-color:white;
+}
+</style>
+
+ <table style="width:75%;height:auto;background-color:#c0c0c0;border-color:black;" align="center"  >
+ <% form_for @home ,:url => {:controller => "home",:action => "create"},:html=> {:multipart=>true}  do |f|  %>
+ <%# form_tag ({:controller => 'home',:action => 'create' })do %>
+ <tr>
+ <td align="center">
+ <label class="lble">Name: </label>
+ <%= f.text_field(:name ,:class => 'txt')%>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Date of Birth: </label>
+ <%= f.text_field(:dob,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Address: </label>
+ <%= f.text_field(:address,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Mobile: </label>
+ <%= f.text_field(:mobile,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+  <label class="lble"> Email: </label>
+ <%= f.text_field(:email,:class =>'txt') %>
+ </td>
+ </tr>
+  <tr>
+ <td align="center">
+ <label class="lble">Upload images and videos: </label>
+ <%#text_field(:homes,:email,:class =>'txt') %>
+ <%= f.file_field :image_file , :class =>'txt1' %>
+ </td>
+ </tr>
+ <br>
+ <br>
+ <tr>
+ <td align="center">
+ <%= f.submit 'Create',:class =>'but' %>
+ </td>
+ </tr>
+ <% end %>
+ 
+</table>

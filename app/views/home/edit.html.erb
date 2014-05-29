@@ -1,0 +1,138 @@
+<!-- <h1>Home#edit</h1>
+<p>Find me in app/views/home/edit.html.erb</p>
+ -->
+<link href="/stylesheets/layout.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/menu.css" rel="stylesheet" type="text/css" />
+<!-- <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" /> -->
+
+
+<style>
+.lble
+{
+	background-color: #c0c0c0;	
+	width: 50%;
+	height:350px;
+	font-family: Helvetica;
+}
+.txt
+{
+	/*border: 1px solid black;*/
+width:500px;
+height:30px;
+font-family:Helvetica;
+color:#c0c0c0;
+font-size:21px; 
+
+/*padding-left:10px;
+*/
+}
+ img.resize{height:auto;width:156px;margin:  0 -46px 0 -46px;}
+.but
+{
+	/*border: 1px solid black;*/
+	width:100px;
+height:25px;
+font-family:Helvetica;
+color:white;
+font-size:16px; 
+background-color:black;
+}
+</style>
+ <body>
+
+<div align="center">
+ <table style="width:75%;height:auto;background-color:#c0c0c0;" align="center"  >
+ <%# form_tag ({:controller => 'home',:action => 'update'})do %>
+ <% form_for @home ,:url => {:controller => "home",:action => "update"},:html=> {:multipart=>true}  do |f|  %>
+  <div class="container">
+
+            <ul id="nav">
+                <li><%= link_to 'Home' ,:controller => 'home',:action=>'index' %></li>
+                <li><!-- <a class="hsubs" href="#">Back</a> -->
+                <%= link_to 'Back' ,:controller => 'home',:action=>'show',:class => 'hsubs'%>
+                    <ul class="subs">
+                    </ul>
+                </li>
+                <!-- <li>
+
+                <%# link_to 'Update' ,@home,:confirm => 'Are you want',:method =>:update ,:class =>'hsubs' %>
+                    <ul class="subs">
+                       
+                    </ul>
+                </li> -->
+                <li>
+               <%= link_to 'Delete' ,@home,:confirm => 'Are you want',:method =>:delete,:class=>'hsubs' %>
+                    <ul class="subs">
+                      
+                    </ul>
+                </li>
+              
+                <div id="lavalamp"></div>
+            </ul>
+
+        </div>
+        
+         <tr >
+ <td align="center" style="padding-bottom:25px;" >
+ 
+ </td>
+ </tr>
+ <tr >
+ <td align="center" >
+ <label class="lble">Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+ <%= f.text_field(:name ,:class => 'txt')%>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Date of Birth: </label>
+ <%= f.text_field(:dob,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Address: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label>
+ <%= f.text_field(:address,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center">
+ <label class="lble">Mobile: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label>
+ <%= f.text_field(:mobile,:class =>'txt') %>
+ </td>
+ </tr>
+ <tr>
+ <td align="center" style="padding-bottom:25px;">
+  <label class="lble"> Email: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label>
+ <%= f.text_field(:email,:class =>'txt') %>
+ </td>
+ </tr>
+  <tr>
+ <td align="center" style="padding-left:50px;" >
+ <label class="lble">Upload images :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label> 
+ </td>
+ </tr>
+ <tr>
+ <td align="center" style="padding-bottom:10px;">
+ <a href="/photo/show?cid=<%= @home.id %>"><%= image_tag("/data/#{@home.filename}", :alt => 'css template',:class => "resize" ) %></a>
+ </td>
+ </tr>
+ <br><br>
+ <tr>
+ <td align="center">
+ 
+ <%= f.submit 'Update',:class =>'but' %>
+ 
+
+ <%# link_to 'Update' ,{:controller=>"home", :action=>"update"},:method =>:put  %>
+ 
+  
+
+ </td>
+ </tr>
+ <% end %>
+ <%# image_tag("/data/#{photos.filename}", :alt => 'css template',:class => "resize" ) %>
+
+</table>
+</div>
+</body>

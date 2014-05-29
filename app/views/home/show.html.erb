@@ -1,0 +1,87 @@
+<!-- <h1>Home#show</h1>
+<p>Find me in app/views/home/show.html.erb</p>
+ -->
+ <link href="/stylesheets/layout.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/menu.css" rel="stylesheet" type="text/css" />
+ <style>
+ .lin
+ {
+ 	background-color: #c0c0c0;	
+	width: 50%;
+	height:350px;
+	font-family: Helvetica;
+	font-size: 21px;
+ }
+ .lbe
+ {
+ 	background-color: #c0c0c0;	
+	width: 50%;
+	height:350px;
+	font-family: Helvetica;
+	font-size: 21px; 
+	color:green;
+ }
+ </style>
+ <body>
+ <div align="center" style="padding-top:50px;" >
+
+<table style="width:75%;height:auto;background-color:#c0c0c0;" align="center" style="padding-left:50px;" >
+<tr>
+<td>
+       <div class="container">
+
+            <ul id="nav">
+                <li><%= link_to 'Home' ,:controller => 'home',:action=>'index' %></li>
+                <li><!-- <a class="hsubs" href="#">Back</a> -->
+                <%= link_to 'Back' ,:controller => 'home',:action=>'show',:class => 'hsubs'%>
+                    <ul class="subs">
+                    </ul>
+                </li>
+                <!-- <li>
+
+                <%# link_to 'Update' ,@home,:confirm => 'Are you want',:method =>:update ,:class =>'hsubs' %>
+                    <ul class="subs">
+                       
+                    </ul>
+                </li> -->
+                <li>
+               <%# link_to 'Delete' ,@home,:confirm => 'Are you want',:method =>:delete,:class=>'hsubs' %>
+                    <ul class="subs">
+                      
+                    </ul>
+                </li>
+              
+                <div id="lavalamp"></div>
+            </ul>
+
+        </div>
+        </td>
+        </tr>
+        </table>
+        </div>
+        <div align="center">
+<table style="width:75%;height:auto;background-color:#c0c0c0;" align="center" style="padding-left:50px;" >
+
+ <tr>
+<td align="center">
+<font class="lbe"> Details </font>
+ </td>
+ </tr>
+ <% @home.each do |h| %>
+ 
+ <tr>
+ <td align="center">
+
+ <%= link_to h.name ,{:controller => 'home',:action =>'edit',:id =>h.id} ,:class =>'lin'%>
+ </td>
+ </tr>
+ 
+ <% end %>
+ <tr>
+ <td align="right">
+ <%= link_to 'New' ,{:controller =>'home',:action => 'new'},:class =>'lin' %>
+ </td>
+ </tr>
+ </table>
+ </div>
+ </body>
